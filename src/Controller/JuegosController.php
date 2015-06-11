@@ -36,9 +36,23 @@ class JuegosController extends AppController
         $juego = $this->Juegos->get($id, [
             'contain' => []
         ]);
-		$http = new Client();
-		$response = $http->get('http://www.boardgamegeek.com/xmlapi/boardgame/' . $juego->objectid);
-		$data = Xml::toArray(Xml::build($response->body()));
+
+        $ch = curl_init();
+
+        // set URL and other appropriate options
+        $url = 'http://www.boardgamegeek.com/xmlapi/boardgame/'.$juego->objectid;
+        curl_setopt($ch, CURLOPT_URL, $url);
+        if ($_SERVER['HTTP_HOST'] != 'localhost') {
+            curl_setopt($ch, CURLOPT_PROXY, '10.0.2.1');
+            curl_setopt($ch, CURLOPT_PROXYPORT, 1280);
+        }
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        // grab URL and pass it to the browser
+        $body = curl_exec($ch);
+        // close cURL resource, and free up system resources
+        curl_close($ch);
+
+        $data = Xml::toArray(Xml::build($body));
 		$juego['detalle'] = $data['boardgames']['boardgame'];
 		
         $this->set('juego', $juego);
