@@ -10,17 +10,14 @@ $this->start('tb_sidebar');
     </ul>
 <?php $this->end(); ?>
 
-<h2><?= h($juego->id) ?></h2>
+<h2><?= h($juego->nombre) ?></h2>
 <div class="row">
-        <div class="col-lg-5">
-                                    <h6><?= __('Nombre') ?></h6>
-                    <p><?= h($juego->nombre) ?></p>
-                                </div>
-            <div class="col-lg-2">
-                    <h6><?= __('Id') ?></h6>
-                <p><?= $this->Number->format($juego->id) ?></p>
-                    <h6><?= __('Objectid') ?></h6>
-                <p><?= $this->Number->format($juego->objectid) ?></p>
-                </div>
-            </div>
+    <div class="col-lg-5">
+        <h6><?= __('Descripción') ?></h6>
+        <p><?= $juego['detalle']['description'] ?></p>
+    </div>
+    <div class="col-lg-2">
+        <?= $this->Html->image($juego['detalle']['image'], ['alt' => 'Juego']); ?>
+    </div>
 
+</div>
