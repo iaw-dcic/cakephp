@@ -4,7 +4,8 @@ $this->start('tb_sidebar');
 ?>
 <ul class="nav nav-sidebar">
     <li><?= $this->Html->link(__('New Juego'), ['action' => 'add']); ?></li>
-    </ul>
+    <li><?= $this->Html->link(__('Descargar PDF'), ['controller' => 'pdf', 'action' => 'juegos.pdf'], ['target' => '_blank']); ?></li>
+</ul>
 <?php $this->end(); ?>
 <table class="table table-striped" cellpadding="0" cellspacing="0">
     <thead>

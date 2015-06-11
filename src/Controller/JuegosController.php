@@ -22,6 +22,14 @@ class JuegosController extends AppController
     {
         $this->set('juegos', $this->paginate($this->Juegos));
         $this->set('_serialize', ['juegos']);
+
+        $CakePdf = new \CakePdf\Pdf\CakePdf();
+        $CakePdf->title('Juegos');
+        $CakePdf->viewVars(['juegos' => $this->paginate($this->Juegos)]);
+        $CakePdf->template('index', 'default');
+        $pdf = $CakePdf->output();
+        $pdf = $CakePdf->write('/Users/mariano/Sites/juegos/webroot/pdf/juegos.pdf');
+
     }
 
     /**

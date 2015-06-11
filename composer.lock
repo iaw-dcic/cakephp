@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "26472326e658fc8bb4891d16e20ab24b",
+    "hash": "88887a584088635bf24fdd99dc492509",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -339,6 +339,50 @@
                 "twitter"
             ],
             "time": "2015-06-05 14:07:08"
+        },
+        {
+            "name": "friendsofcake/cakepdf",
+            "version": "3.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfCake/CakePdf.git",
+                "reference": "82b0c93519722c1049f03eb6fc2e8be5be2f89a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfCake/CakePdf/zipball/82b0c93519722c1049f03eb6fc2e8be5be2f89a1",
+                "reference": "82b0c93519722c1049f03eb6fc2e8be5be2f89a1",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "~3.0",
+                "cakephp/plugin-installer": "*",
+                "php": ">=5.4.16"
+            },
+            "replace": {
+                "ceeram/cakepdf": "self.version"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "suggest": {
+                "dompdf/dompdf": "If you wish to use the DomPdf engine",
+                "mpdf/mpdf": "If you wish to use the Mpdf engine",
+                "tecnick.com/tcpdf": "If you wish to use the Tcpdf engine"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "CakePdf\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "CakePHP plugin for creating and/or rendering Pdfs, several Pdf engines supported.",
+            "homepage": "http://github.com/friendsofcake/CakePdf",
+            "time": "2015-06-08 18:39:07"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -789,6 +833,69 @@
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
             "time": "2015-05-02 15:18:45"
+        },
+        {
+            "name": "tecnick.com/tcpdf",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tecnickcom/TCPDF.git",
+                "reference": "3dee9e7f3a414875fd1d9f4f1dfc2433493a86d2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tecnickcom/TCPDF/zipball/3dee9e7f3a414875fd1d9f4f1dfc2433493a86d2",
+                "reference": "3dee9e7f3a414875fd1d9f4f1dfc2433493a86d2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "fonts",
+                    "config",
+                    "include",
+                    "tcpdf.php",
+                    "tcpdf_parser.php",
+                    "tcpdf_import.php",
+                    "tcpdf_barcodes_1d.php",
+                    "tcpdf_barcodes_2d.php",
+                    "include/tcpdf_colors.php",
+                    "include/tcpdf_filters.php",
+                    "include/tcpdf_font_data.php",
+                    "include/tcpdf_fonts.php",
+                    "include/tcpdf_images.php",
+                    "include/tcpdf_static.php",
+                    "include/barcodes/datamatrix.php",
+                    "include/barcodes/pdf417.php",
+                    "include/barcodes/qrcode.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPLv3"
+            ],
+            "authors": [
+                {
+                    "name": "Nicola Asuni",
+                    "email": "info@tecnick.com",
+                    "homepage": "http://nicolaasuni.tecnick.com"
+                }
+            ],
+            "description": "TCPDF is a PHP class for generating PDF documents and barcodes.",
+            "homepage": "http://www.tcpdf.org/",
+            "keywords": [
+                "PDFD32000-2008",
+                "TCPDF",
+                "barcodes",
+                "datamatrix",
+                "pdf",
+                "pdf417",
+                "qrcode"
+            ],
+            "time": "2015-04-29 16:13:58"
         }
     ],
     "packages-dev": [
@@ -1137,6 +1244,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "friendsofcake/cakepdf": 20,
+        "tecnick.com/tcpdf": 20,
         "psy/psysh": 0
     },
     "prefer-stable": true,
