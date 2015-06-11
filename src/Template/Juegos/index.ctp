@@ -1,41 +1,41 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('New Juego'), ['action' => 'add']) ?></li>
+<?php
+$this->extend('../Layout/TwitterBootstrap/dashboard');
+$this->start('tb_sidebar');
+?>
+<ul class="nav nav-sidebar">
+    <li><?= $this->Html->link(__('New Juego'), ['action' => 'add']); ?></li>
     </ul>
-</div>
-<div class="juegos index large-10 medium-9 columns">
-    <table cellpadding="0" cellspacing="0">
+<?php $this->end(); ?>
+<table class="table table-striped" cellpadding="0" cellspacing="0">
     <thead>
         <tr>
-            <th><?= $this->Paginator->sort('id') ?></th>
-            <th><?= $this->Paginator->sort('nombre') ?></th>
-            <th><?= $this->Paginator->sort('objectid') ?></th>
-            <th class="actions"><?= __('Actions') ?></th>
+                        <th><?= $this->Paginator->sort('id'); ?></th>
+                        <th><?= $this->Paginator->sort('nombre'); ?></th>
+                        <th><?= $this->Paginator->sort('objectid'); ?></th>
+                        <th class="actions"><?= __('Actions'); ?></th>
         </tr>
     </thead>
     <tbody>
-    <?php foreach ($juegos as $juego): ?>
+        <?php foreach ($juegos as $juego): ?>
         <tr>
-            <td><?= $this->Number->format($juego->id) ?></td>
-            <td><?= h($juego->nombre) ?></td>
-            <td><?= $this->Number->format($juego->objectid) ?></td>
-            <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $juego->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $juego->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $juego->id], ['confirm' => __('Are you sure you want to delete # {0}?', $juego->id)]) ?>
+                        <td><?= $this->Number->format($juego->id) ?></td>
+                                    <td><?= h($juego->nombre) ?></td>
+                                    <td><?= $this->Number->format($juego->objectid) ?></td>
+                                    <td class="actions">
+                <?= $this->Html->link('', ['action' => 'view', $juego->id], ['title' => __('View'), 'class' => 'btn btn-default glyphicon glyphicon-eye-open']) ?>
+                <?= $this->Html->link('', ['action' => 'edit', $juego->id], ['title' => __('Edit'), 'class' => 'btn btn-default glyphicon glyphicon-pencil']) ?>
+                <?= $this->Form->postLink('', ['action' => 'delete', $juego->id], ['confirm' => __('Are you sure you want to delete # {0}?', $juego->id), 'title' => __('Delete'), 'class' => 'btn btn-default glyphicon glyphicon-trash']) ?>
             </td>
         </tr>
 
-    <?php endforeach; ?>
+        <?php endforeach; ?>
     </tbody>
-    </table>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-        </ul>
-        <p><?= $this->Paginator->counter() ?></p>
-    </div>
+</table>
+<div class="paginator">
+    <ul class="pagination">
+        <?= $this->Paginator->prev('< ' . __('previous')) ?>
+        <?= $this->Paginator->numbers() ?>
+        <?= $this->Paginator->next(__('next') . ' >') ?>
+    </ul>
+    <p><?= $this->Paginator->counter() ?></p>
 </div>

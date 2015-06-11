@@ -28,13 +28,12 @@ class SearchController extends AppController
 	
 		$http = new Client();
 		$response = $http->get('http://www.boardgamegeek.com/xmlapi/search?search=' . $search);
-		$data = Xml::toArray(Xml::build($response->body()));
+		$data = Xml::build($response->body());
 		$resultados = [];
-		foreach ($data['boardgames']['boardgame'] as $opcion) {
+		foreach ($data->boardgame as $opcion) {
 			$element = [];
-			$element['value'] = $opcion['@objectid'];
-			$element['label'] = $opcion['name']['@'];
-
+			$element['value'] = $opcion->attributes()->objectid->__toString();
+			$element['label'] = $opcion->name->__toString();
 			array_push($resultados, $element);
 		}
 		$this->set('resultado', $resultados);	
